@@ -1,0 +1,33 @@
+
+<?php
+
+echo ("This is the read file ");
+$raw_cdr = fopen('/tmp/test.xml',"r");
+$test =  fread($raw_cdr,filesize("/tmp/test.xml"));
+fclose($raw_cdr);
+
+print_r($test);
+echo("<hr>");
+echo  $test;
+
+$source = '/tmp/test.xml';
+
+ // load as string
+ $xmlstr = file_get_contents($source);
+ $xmlcont = new SimpleXMLElement($xmlstr);
+/* foreach($xmlcont as $url) 
+ {
+    echo "{$url->loc} - {$url->lastmod} - {$url->changefreq} - {$url->priority}\r\n";
+ }
+
+/*
+$xml=simplexml_load_string($test) or die("Error: Cannot create object");
+*/
+
+print_r($xml);
+
+echo ("<hr>");
+echo $xml;
+
+?>
+

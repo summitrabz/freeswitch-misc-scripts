@@ -1,0 +1,13 @@
+<?php
+$raw_cdr = $_POST['cdr'];
+$writefile = fopen('/tmp/dump.xml',"w");
+fwrite($writefile, $raw_cdr);
+fclose($writefile);
+
+$xml = simplexml_load_string($raw_cdr);
+$json = json_encode($xml);
+$array = json_decode($json,TRUE);
+
+print_r($array);
+
+?>
